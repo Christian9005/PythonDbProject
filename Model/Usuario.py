@@ -30,6 +30,16 @@ class User:
         else:
             print("Error Usuario duplicado")
 
+    def Lists_User(self):
+        connection = Connection_DB()
+        mydb = connection.cursor()
+        sql = "SELECT * FROM usuarios"
+        mydb.execute(sql)
+        names_users = mydb.fetchall()
+        print("Id     Usuario     Contraseña")
+        for user in names_users:
+            print(f"{user[0]}      {user[1]}       {user[2]}")
+
     def Search_User(self):
         valid = Validation_User(self.name)
         if not valid:
@@ -41,7 +51,7 @@ class User:
             my_DB.execute(sql, name)
             names_users = my_DB.fetchall()
             for user in names_users:
-                print("Id       Nombre      Contraseña")
+                print("Id       Nombre      Contra seña")
                 print(f"{user[0]}        {user[1]}       {user[2]}")
         else:
             print("Usuario no registrado!!!")

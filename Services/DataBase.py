@@ -8,4 +8,3 @@ def Connection_DB():
         database="dbproject"
     )
     return mydb
-
